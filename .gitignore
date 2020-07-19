@@ -1,0 +1,8 @@
+# created by virtualenv automatically
+bin
+lib
+*.cfg
+*.pyc
+settings.yaml
+credentials.json
+.env
