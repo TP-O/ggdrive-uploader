@@ -1,4 +1,5 @@
 import os
+import subprocess
 from dotenv import load_dotenv
 from mypacks.uploader_builder import UploaderBuilder
 
@@ -16,4 +17,5 @@ try:
     # Upload files
     uploader.upload()
 except Exception as e:
+    subprocess.Popen(['notify-send', str(e)])
     print(e)

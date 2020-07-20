@@ -1,3 +1,4 @@
+import subprocess
 from pydrive.auth import GoogleAuth
 from pydrive.drive import GoogleDrive
 
@@ -20,6 +21,7 @@ class GGDrive:
     def update(self, file_item, path):
         file_item.SetContentFile(path)
         file_item.Upload()
+        subprocess.Popen(['notify-send', 'Item was updated!'])
 
     def upload(self, paths):
         file_list = self.get_file_list()
@@ -35,3 +37,4 @@ class GGDrive:
                 file_item = self.ggdrive.CreateFile({'title': title, 'parents': [{'id': self.parent_id}]})
                 file_item.SetContentFile(path)
                 file_item.Upload()
+                subprocess.Popen(['notify-send', 'Item was uploaded!'])
